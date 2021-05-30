@@ -19,9 +19,9 @@ def mostrar(parametro):
         return render_template('index.html', mensaje=['Nombre del equipo', platform.node()]) #Puede que no este identificado por lo que dara una cadena vacia, se puede utilizar sino socket.gethostname() o os.environ['COMPUTERNAME']
     elif parametro=="reinicio":
         if os.name=="nt":
-            return render_template('index.html', mensaje=['Reinicio de sistema en 5min', subprocess.run("shutdown -r +5, shell=True")])
+            return render_template('index.html', mensaje=['Reinicio de sistema en 5min', subprocess.run("shutdown -r +5, shell=True")]) #Reinicio en 5min
         elif os.name=="posix":
-            return render_template('index.html', mensaje=['Reinicio de sistema inmediatamente', subprocess.run("shutdown -r now, shell=True")])
+            return render_template('index.html', mensaje=['Reinicio de sistema inmediatamente', subprocess.run("shutdown -r now, shell=True")]) #Reinicio inmediato
     else:
         return render_template('index.html',mensaje=['Error','Parámetro no válido, haz clic en el menú superior'])
 
